@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -158,6 +158,7 @@
     var(--catppuccin-macchiato-surface1) 80%,
     transparent
   );
+  --link-hover: #7dd3fc;
   --hero-a: color-mix(
     in oklab,
     var(--catppuccin-macchiato-lavender) 32%,
@@ -222,6 +223,7 @@
   --chip-bg: rgba(13, 28, 32, 0.9);
   --chip-line: rgba(141, 229, 219, 0.24);
   --link-bg-hover: rgba(24, 44, 49, 0.8);
+  --link-hover: #7dd3fc;
   --hero-a: rgba(96, 215, 207, 0.18);
   --hero-b: rgba(110, 200, 154, 0.12);
 
@@ -260,7 +262,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -280,6 +284,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-catppuccin-macchiato-mauve: var(--catppuccin-macchiato-mauve);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -310,6 +315,7 @@ body {
   color: var(--sea-ink);
   font-family: var(--font-sans);
   background-color: var(--bg-base);
+  color:#a5adcb;
 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -337,14 +343,14 @@ body::after {
 }
 
 a {
-  color: var(--lagoon-deep);
+  color: inherit;
   text-decoration-color: rgba(50, 143, 151, 0.4);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--catppuccin-macchiato-sapphire);
+  color: var(--link-hover);
 }
 
 code {
