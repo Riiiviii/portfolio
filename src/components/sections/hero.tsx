@@ -21,7 +21,7 @@ export default function Hero() {
             for real-world use.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button variant="heroPrimary">
+            <Button variant="primary">
               <Mail />
               Contact
             </Button>
