@@ -14,7 +14,7 @@ export default function Navbar() {
       {navbarItems.map((link) => (
         <Button key={link.href} asChild variant="nav">
           <a
-            className="text-foreground no-underline hover:text-catppuccin-macchiato-mauve"
+            className="text-term-text-dim no-underline hover:text-term-white"
             href={link.href}
           >
             {link.name}

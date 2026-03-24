@@ -11,6 +11,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        primary:
+          'border border-term-grey-3 bg-[var(--term-surface-1)] text-term-text shadow-[0_4px_14px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 hover:border-term-grey-1 hover:text-term-white hover:shadow-[0_6px_20px_rgba(255,255,255,0.08)] focus-visible:ring-term-white',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
         outline:
@@ -20,7 +22,9 @@ const buttonVariants = cva(
         ghost:
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
-        nav: 'bg-transparent no-underline hover:text-catppuccin-macchiato-mauve',
+        nav: 'bg-transparent no-underline hover:text-term-white',
+        glitch:
+          'btn-glitch bg-transparent text-term-text-dim hover:text-term-white',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
