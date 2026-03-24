@@ -158,7 +158,7 @@
     var(--catppuccin-macchiato-surface1) 80%,
     transparent
   );
-  --link-hover: #7dd3fc;
+  --link-hover: var(--catppuccin-macchiato-sky);
   --hero-a: color-mix(
     in oklab,
     var(--catppuccin-macchiato-lavender) 32%,
@@ -223,7 +223,7 @@
   --chip-bg: rgba(13, 28, 32, 0.9);
   --chip-line: rgba(141, 229, 219, 0.24);
   --link-bg-hover: rgba(24, 44, 49, 0.8);
-  --link-hover: #7dd3fc;
+  --link-hover: var(--catppuccin-macchiato-sky);
   --hero-a: rgba(96, 215, 207, 0.18);
   --hero-b: rgba(110, 200, 154, 0.12);
 
@@ -315,7 +315,7 @@ body {
   color: var(--sea-ink);
   font-family: var(--font-sans);
   background-color: var(--bg-base);
-  color:#a5adcb;
+  color: #a5adcb;
 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
