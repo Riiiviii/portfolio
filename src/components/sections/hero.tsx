@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 
 export default function Hero() {
   return (
-    <section id="home" className="mt-30">
+    <section id="home" className="mt-45">
       <div className="grid items-center gap-10 md:grid-cols-[3fr_2fr]">
         <div className="flex max-w-2xl flex-col items-start text-left">
           <h1 className="text-term-text text-5xl font-bold">
@@ -24,6 +24,8 @@ export default function Hero() {
             }
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
+            <span className="mt-2">/</span>
+
             <Button variant="glitch">
               <Mail />
               Contact
@@ -43,6 +45,7 @@ export default function Hero() {
               <Linkedin />
               Linkdin
             </Button>
+            <span className="mt-2">/</span>
           </div>
         </div>
       </div>
