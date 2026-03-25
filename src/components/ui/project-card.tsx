@@ -17,8 +17,19 @@ export function ProjectCard({
   project: Project
   index: number
 }) {
-  const { ref, replay } = useScramble({
+  const { ref: cardRef, replay: replayCard } = useScramble({
     text: project.title,
+    overdrive: false,
+    speed: 0.5,
+  })
+
+  const { ref: repoRef, replay: replayRepo } = useScramble({
+    text: 'repo',
+    overdrive: false,
+    speed: 0.5,
+  })
+  const { ref: liveRef, replay: replayLive } = useScramble({
+    text: 'live',
     overdrive: false,
     speed: 0.5,
   })
@@ -26,7 +37,7 @@ export function ProjectCard({
   return (
     <div
       className="mt-4 border border-dotted border-term-grey-3 p-5 hover:border-term-grey-2 transition-colors"
-      onMouseEnter={replay}
+      onMouseEnter={replayCard}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-baseline gap-3">
@@ -34,7 +45,7 @@ export function ProjectCard({
             {String(index + 1).padStart(2, '0')}.
           </span>
           <h2 className="text-term-white font-bold text-xl">
-            <span ref={ref} />
+            <span ref={cardRef} />
           </h2>
         </div>
         <div className="flex shrink-0 items-center gap-4">
@@ -43,18 +54,20 @@ export function ProjectCard({
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
+            onMouseEnter={replayRepo}
           >
             <FaGithub />
-            repo
+            <span ref={repoRef} />
           </a>
           <a
             href={project.link}
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
+            onMouseEnter={replayLive}
           >
             <ExternalLink size={12} />
-            live
+            <span ref={liveRef} />
           </a>
         </div>
       </div>
