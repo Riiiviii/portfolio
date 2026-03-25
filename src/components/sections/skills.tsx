@@ -1,3 +1,5 @@
+import { SkillGroup } from '#/components/ui/skill-group'
+
 const skillGroups = [
   {
     category: 'languages',
@@ -31,6 +33,7 @@ const skillGroups = [
   },
 ]
 
+
 export default function Skills() {
   return (
     <section id="skills" className="mt-40">
@@ -41,21 +44,11 @@ export default function Skills() {
       />
       <div className="mt-8 flex flex-col gap-6">
         {skillGroups.map((group) => (
-          <div key={group.category}>
-            <p className="mb-3 text-sm text-term-text-muted">
-              <span className="text-term-white">{'>'}</span> {group.category}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="border border-term-grey-3 px-3 py-1 text-sm text-term-text-dim hover:border-term-grey-2 hover:text-term-white transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+          <SkillGroup
+            key={group.category}
+            category={group.category}
+            skills={group.skills}
+          />
         ))}
       </div>
     </section>
