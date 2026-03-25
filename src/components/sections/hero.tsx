@@ -1,5 +1,28 @@
-import { Download, Github, Linkedin, Mail } from 'lucide-react'
+import { Download, Mail } from 'lucide-react'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { useScramble } from 'use-scramble'
 import { Button } from '../ui/button'
+
+function ScrambleButton({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode
+  label: string
+}) {
+  const { ref, replay } = useScramble({
+    text: label,
+    overdrive: false,
+    speed: 0.5,
+  })
+
+  return (
+    <Button variant="glitch" onMouseEnter={replay}>
+      {icon}
+      <span ref={ref} />
+    </Button>
+  )
+}
 
 export default function Hero() {
   return (
@@ -23,26 +46,13 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <span className="mt-2">/</span>
-
-            <Button variant="glitch">
-              <Mail />
-              Contact
-            </Button>
+            <ScrambleButton icon={<Mail />} label="Contact" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Download />
-              Resume
-            </Button>
+            <ScrambleButton icon={<Download />} label="Resume" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Github />
-              Github
-            </Button>
+            <ScrambleButton icon={<FaGithub />} label="Github" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Linkedin />
-              Linkdin
-            </Button>
+            <ScrambleButton icon={<FaLinkedin />} label="LinkedIn" />
             <span className="mt-2">/</span>
           </div>
         </div>
