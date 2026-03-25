@@ -1,5 +1,6 @@
 import Hero from '#/components/sections/hero'
 import Project from '#/components/sections/projects'
+import Skills from '#/components/sections/skills'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: App })
@@ -9,6 +10,7 @@ function App() {
     <main className="flex flex-col justify-center">
       <Hero />
       <Project />
+      <Skills />
     </main>
   )
 }
