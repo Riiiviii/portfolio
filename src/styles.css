@@ -136,6 +136,7 @@ html,
 body,
 #app {
   min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
