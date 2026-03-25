@@ -44,7 +44,11 @@ export default function Projects() {
   return (
     <section id="projects" className="mt-40">
       <div>
-        <img src="projects.png" alt="" className="invert mix-blend-screen" />
+        <img
+          src="projects.png"
+          alt="projects title image"
+          className="invert mix-blend-screen"
+        />
       </div>
       <div className="mt-5">
         <p>
