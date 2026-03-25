@@ -48,8 +48,8 @@ export default function Projects() {
       </div>
       <div className="mt-5">
         <p>
-          Here's a small collection of the projects that display my skills and
-          love for software development
+          Here's a small collection of the projects that I've developed that
+          display my skills and love for software development
         </p>
       </div>
       <div className="mt-5">
