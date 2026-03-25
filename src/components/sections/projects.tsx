@@ -47,6 +47,12 @@ export default function Projects() {
         <img src="projects.png" alt="" className="invert mix-blend-screen" />
       </div>
       <div className="mt-5">
+        <p>
+          Here's a small collection of the projects that display my skills and
+          love for software development
+        </p>
+      </div>
+      <div className="mt-5">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
         ))}
