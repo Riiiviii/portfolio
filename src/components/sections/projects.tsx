@@ -1,4 +1,6 @@
-const projects = [
+import { ProjectCard, type Project } from '#/components/ui/project-card'
+
+const projects: Project[] = [
   {
     title: 'Olways Pets',
     description:
@@ -19,7 +21,7 @@ const projects = [
     repo: 'https://github.com/Riiiviii/olways-pets',
   },
   {
-    title: 'Simos',
+    title: 'Simos PT',
     description:
       'A personal training service website featuring a landing page with testimonial carousel, training session offerings for in-person and online programming, a categorized FAQ with sticky sidebar navigation, scroll-triggered animations, and a contact form powered by Resend email integration with React Email templates.',
     technologies: [
@@ -38,20 +40,15 @@ const projects = [
   },
 ]
 
-export default function Project() {
+export default function Projects() {
   return (
-    <section className="mt-40">
+    <section id="projects" className="mt-40">
       <div>
-        <img src="projects.png" alt="" className=" invert mix-blend-screen" />
+        <img src="projects.png" alt="" className="invert mix-blend-screen" />
       </div>
       <div className="mt-5">
-        {projects.map((project) => (
-          <div
-            key={project.title}
-            className="p-2 mt-2 border-2 border-white border-dotted"
-          >
-            <h2>{project.title}</h2>
-          </div>
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} index={index} />
         ))}
       </div>
     </section>
