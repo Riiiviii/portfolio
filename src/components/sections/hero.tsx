@@ -1,15 +1,24 @@
-import { Download, Github, Linkedin, Mail } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Download, Mail } from 'lucide-react'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { ScrambleButton } from '../ui/scramble-button'
+import { CyclingScramble } from '../ui/scramble-text'
+
+const scrambleText = [
+  'backend development',
+  'designing clean APIs',
+  'full-stack systems',
+  'database architecture',
+  'writing maintainable code',
+  'solving real problems',
+]
 
 export default function Hero() {
   return (
-    <section id="home" className="mt-45">
+    <section className="mt-45">
       <div className="grid items-center gap-10 md:grid-cols-[3fr_2fr]">
         <div className="flex max-w-2xl flex-col items-start text-left">
-          <h1 className="text-term-text text-5xl font-bold">
-            {"Hi! I'm "}
-            <span className="text-term-white">Gabriel Riven Wahnich</span>
-          </h1>
+          <img src="hero.png" alt="" className="invert mix-blend-screen" />
+
           <p className="mt-4 text-l text-term-text-dim leading-relaxed">
             {
               "I'm a Melbourne-based software developer with experience building and delivering "
@@ -23,28 +32,26 @@ export default function Hero() {
               '—designing APIs, handling data, and writing clear, maintainable code for real-world use.'
             }
           </p>
+
+          <div className="mt-3 flex">
+            <p className="text-term-text-dim text-xl">I am passionate about </p>
+            <CyclingScramble
+              className="ml-2 text-xl"
+              texts={scrambleText}
+              delay={3000}
+              speed={0.6}
+            />
+          </div>
+
           <div className="mt-10 flex flex-wrap gap-3">
             <span className="mt-2">/</span>
-
-            <Button variant="glitch">
-              <Mail />
-              Contact
-            </Button>
+            <ScrambleButton icon={<Mail />} label="Contact" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Download />
-              Resume
-            </Button>
+            <ScrambleButton icon={<Download />} label="Resume" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Github />
-              Github
-            </Button>
+            <ScrambleButton icon={<FaGithub />} label="Github" />
             <span className="mt-2">/</span>
-            <Button variant="glitch">
-              <Linkedin />
-              Linkdin
-            </Button>
+            <ScrambleButton icon={<FaLinkedin />} label="LinkedIn" />
             <span className="mt-2">/</span>
           </div>
         </div>
