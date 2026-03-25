@@ -6,10 +6,8 @@ export default function Hero() {
     <section id="home" className="mt-45">
       <div className="grid items-center gap-10 md:grid-cols-[3fr_2fr]">
         <div className="flex max-w-2xl flex-col items-start text-left">
-          <h1 className="text-term-text text-5xl font-bold">
-            {"Hi! I'm "}
-            <span className="text-term-white">Gabriel Riven Wahnich</span>
-          </h1>
+          <img src="hero.png" alt="" className="invert mix-blend-screen" />
+
           <p className="mt-4 text-l text-term-text-dim leading-relaxed">
             {
               "I'm a Melbourne-based software developer with experience building and delivering "
