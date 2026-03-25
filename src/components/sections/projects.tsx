@@ -44,6 +44,16 @@ export default function Project() {
       <div>
         <img src="projects.png" alt="" className=" invert mix-blend-screen" />
       </div>
+      <div className="mt-5">
+        {projects.map((project) => (
+          <div
+            key={project.title}
+            className="p-2 mt-2 border-2 border-white border-dotted"
+          >
+            <h2>{project.title}</h2>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
