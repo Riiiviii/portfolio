@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 flex justify-between bg-(--term-bg) py-4 transition-all duration-300 ${
+      className={`sticky top-0 z-50 flex justify-between bg-(--term-bg) py-4 transition-all duration-300 items-center ${
         scrolled ? 'border-b border-white' : 'border-b border-transparent'
       }`}
     >
