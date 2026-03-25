@@ -17,7 +17,11 @@ export default function Hero() {
     <section className="mt-45">
       <div className="grid items-center gap-10 md:grid-cols-[3fr_2fr]">
         <div className="flex max-w-2xl flex-col items-start text-left">
-          <img src="hero.png" alt="" className="invert mix-blend-screen" />
+          <img
+            src="hero.png"
+            alt="title image"
+            className="invert mix-blend-screen"
+          />
 
           <p className="mt-4 text-l text-term-text-dim leading-relaxed">
             {
