@@ -39,6 +39,20 @@ export default function Skills() {
         alt="skills title image"
         className="invert mix-blend-screen"
       />
+      <div>
+        {skillGroups.map((group) => (
+          <div key={group.category}>
+            <p>
+              {'>'} {group.category}
+            </p>
+            <div>
+              {group.skills.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
