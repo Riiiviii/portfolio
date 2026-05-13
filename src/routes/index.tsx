@@ -1,3 +1,4 @@
+import Contact from '#/components/sections/contact/contact'
 import Hero from '#/components/sections/hero'
 import Project from '#/components/sections/projects'
 import Skills from '#/components/sections/skills'
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Project />
       <Skills />
+      <Contact />
     </main>
   )
 }
