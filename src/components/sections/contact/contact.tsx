@@ -8,6 +8,8 @@ import { Label } from '../../ui/label'
 import { Textarea } from '../../ui/textarea'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { sendContactEmail } from '#/server/send-email'
+import { toast } from 'sonner'
 
 const formSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(50),
@@ -22,13 +24,20 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm<FormFields>({
     resolver: zodResolver(formSchema),
   })
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    try {
+      await sendContactEmail({ data })
+      toast.success("Message sent! I'll get back to you soon.")
+      reset()
+    } catch {
+      toast.error('Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -123,9 +132,13 @@ export default function Contact() {
             )}
           </div>
 
-          <Button variant="primary" className="mt-2 w-fit">
+          <Button
+            variant="primary"
+            className="mt-2 w-fit"
+            disabled={isSubmitting}
+          >
             <Send size={14} />
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
         </form>
 
