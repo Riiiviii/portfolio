@@ -4,12 +4,12 @@ import { ScrambleButton } from '../ui/scramble-button'
 import { CyclingScramble } from '../ui/scramble-text'
 
 const scrambleText = [
-  'backend development',
+  'AI engineering',
+  'agentic systems',
+  'shipping production-grade software',
+  'multi-agent architectures',
+  'building tools agents can use',
   'designing clean APIs',
-  'full-stack systems',
-  'database architecture',
-  'writing maintainable code',
-  'solving real problems',
 ]
 
 export default function Hero() {
@@ -24,17 +24,15 @@ export default function Hero() {
           />
 
           <p className="mt-4 text-l text-term-text-dim leading-relaxed">
-            {
-              "I'm a Melbourne-based software developer with experience building and delivering "
-            }
-            <span className="text-term-white">real client applications</span>
-            {', from simple frontend interfaces to '}
+            {"I'm a Melbourne-based software developer focused on "}
+            <span className="text-term-white">AI engineering</span>
+            {" and "}
             <span className="text-term-white">full-stack systems</span>
-            {' with authentication and database integration. I focus on '}
-            <span className="text-term-white">backend development</span>
-            {
-              '—designing APIs, handling data, and writing clear, maintainable code for real-world use.'
-            }
+            {". I build agentic AI applications with the "}
+            <span className="text-term-white">OpenAI Agents SDK</span>
+            {" and "}
+            <span className="text-term-white">MCP</span>
+            {", backed by full-stack experience across Python, TypeScript, and PostgreSQL. I care about shipping production-grade systems and writing code that holds up under real use."}
           </p>
 
           <div className="mt-3 flex">
