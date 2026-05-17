@@ -3,17 +3,17 @@ import { SkillGroup } from '#/components/ui/skill-group'
 const skillGroups = [
   {
     category: 'languages',
-    skills: ['TypeScript', 'JavaScript', 'SQL'],
+    skills: ['Python', 'TypeScript', 'JavaScript', 'SQL'],
   },
   {
     category: 'frontend',
     skills: [
       'React',
       'Next.js',
-      'Tailwind CSS',
+      'TanStack Start',
       'TanStack Router',
       'TanStack Query',
-      'Radix UI',
+      'Tailwind CSS',
       'React Hook Form',
       'Zod',
       'Vite',
@@ -21,18 +21,25 @@ const skillGroups = [
   },
   {
     category: 'backend',
-    skills: ['NestJS', 'Node.js', 'REST APIs', 'JWT Auth'],
+    skills: ['FastAPI', 'Pydantic', 'NestJS', 'Node.js', 'REST APIs', 'JWT Auth'],
+  },
+  {
+    category: 'ai engineering',
+    skills: ['OpenAI Agents SDK', 'Model Context Protocol', 'FastMCP'],
   },
   {
     category: 'database',
-    skills: ['PostgreSQL', 'Prisma'],
+    skills: ['PostgreSQL', 'Prisma', 'Neon'],
   },
   {
-    category: 'tools',
-    skills: ['Git', 'GitHub', 'Cloudinary', 'Resend', 'React Email'],
+    category: 'devops',
+    skills: ['Docker', 'Git', 'GitHub', 'Fly.io'],
+  },
+  {
+    category: 'services',
+    skills: ['Cloudinary', 'Resend'],
   },
 ]
-
 
 export default function Skills() {
   return (
