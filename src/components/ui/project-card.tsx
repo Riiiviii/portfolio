@@ -6,8 +6,8 @@ export interface Project {
   title: string
   description: string
   technologies: string[]
-  link: string
-  repo: string
+  link?: string
+  repo?: string
 }
 
 export function ProjectCard({
@@ -22,7 +22,6 @@ export function ProjectCard({
     overdrive: false,
     speed: 0.5,
   })
-
   const { ref: repoRef, replay: replayRepo } = useScramble({
     text: 'repo',
     overdrive: false,
@@ -49,33 +48,35 @@ export function ProjectCard({
           </h2>
         </div>
         <div className="flex shrink-0 items-center gap-4">
-          <a
-            href={project.repo}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
-            onMouseEnter={replayRepo}
-          >
-            <FaGithub />
-            <span ref={repoRef} />
-          </a>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
-            onMouseEnter={replayLive}
-          >
-            <ExternalLink size={12} />
-            <span ref={liveRef} />
-          </a>
+          {project.repo && (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
+              onMouseEnter={replayRepo}
+            >
+              <FaGithub />
+              <span ref={repoRef} />
+            </a>
+          )}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-sm text-term-text-muted hover:text-term-white"
+              onMouseEnter={replayLive}
+            >
+              <ExternalLink size={12} />
+              <span ref={liveRef} />
+            </a>
+          )}
         </div>
       </div>
-
       <p className="mt-3 text-sm text-term-text-dim leading-relaxed">
         {project.description}
       </p>
-
       <div className="mt-4 flex flex-wrap gap-2">
         {project.technologies.map((tech) => (
           <span
