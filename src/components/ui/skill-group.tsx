@@ -14,9 +14,10 @@ export function SkillGroup({
   })
 
   return (
-    <div onMouseEnter={replay}>
+    <div className="group" onMouseEnter={replay}>
       <p className="mb-3 text-sm text-term-text-muted">
-        <span className="text-term-white">{'>'}</span> <span className='hover:text-term-white transition-colors' ref={ref} />
+        <span className="text-term-white">{'>'}</span>{' '}
+        <span ref={ref} className="text-term-text-dim group-hover:text-term-white" />
       </p>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
