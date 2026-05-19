@@ -1,4 +1,4 @@
-import { Download, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { ScrambleButton } from '../ui/scramble-button'
 import { CyclingScramble } from '../ui/scramble-text'
