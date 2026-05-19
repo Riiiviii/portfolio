@@ -44,11 +44,9 @@ export default function Experience() {
                 />
             </div>
 
-
-
-            <div className="mt-8 space-y-6">
-                {experience.map((item, index) => (
-                    <ExperienceCard key={item.role} experience={item} index={index} />
+            <div className="mt-8 flex flex-col">
+                {experience.map((item) => (
+                    <ExperienceCard key={item.role} experience={item} />
                 ))}
             </div>
         </section>
