@@ -1,5 +1,5 @@
 import { useScramble } from 'use-scramble'
-import type { ExperienceType } from '../sections/experience'
+import type ExperienceType from '#/types/experience'
 
 
 export function ExperienceCard({

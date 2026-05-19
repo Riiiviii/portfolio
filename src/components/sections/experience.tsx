@@ -1,12 +1,5 @@
 import { ExperienceCard } from "../ui/experience-card"
-
-export interface ExperienceType {
-    role: string
-    company: string
-    period: string
-    location: string
-
-}
+import type ExperienceType from '#/types/experience'
 
 
 const experience: ExperienceType[] = [
@@ -61,7 +54,10 @@ export default function Experience() {
             </div>
             <div className="mt-3 flex flex-col">
                 {experience.map((item) => (
-                    <ExperienceCard key={item.role} experience={item} />
+                    <ExperienceCard
+                        key={`${item.company}|${item.role}|${item.period}`}
+                        experience={item}
+                    />
                 ))}
             </div>
 
