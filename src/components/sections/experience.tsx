@@ -44,11 +44,27 @@ export default function Experience() {
                 />
             </div>
 
-            <div className="mt-8 flex flex-col">
+
+            <div className="mt-4">
+                <p className="text-term-white">
+                    For detailed information about my roles and responsibilities, please view my{' '}
+                    <a
+                        href="/Gabriel_Riven_Wahnich_Resume.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="border-b border-dotted border-term-white text-term-white hover:text-term-text-muted! transition-colors"
+                    >
+                        resume
+                    </a>
+                    .
+                </p>
+            </div>
+            <div className="mt-3 flex flex-col">
                 {experience.map((item) => (
                     <ExperienceCard key={item.role} experience={item} />
                 ))}
             </div>
+
         </section>
     )
 }
