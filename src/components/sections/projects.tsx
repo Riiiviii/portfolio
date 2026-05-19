@@ -61,7 +61,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="mt-40">
+    <section id="projects" className="mt-40 scroll-mt-32">
       <div>
         <img
           src="projects.png"

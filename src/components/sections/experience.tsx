@@ -35,7 +35,7 @@ const experience: ExperienceType[] = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="mt-40">
+        <section id="experience" className="mt-40 scroll-mt-32">
             <div>
                 <img
                     src="experience.png"

@@ -43,7 +43,7 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="mt-40">
+    <section id="skills" className="mt-40 scroll-mt-32">
       <img
         src="skills.png"
         alt="skills title image"
