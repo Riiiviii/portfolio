@@ -18,7 +18,7 @@ const experience: ExperienceType[] = [
 
     },
     {
-        role: 'Software Engineer Intern',
+        role: 'Software Engineer Internship',
         company: 'Musical Moon',
         period: '2025',
         location: 'Remote',
