@@ -16,11 +16,11 @@ const projects: Project[] = [
       'Docker',
       'Fly.io',
     ],
-    link: 'https://riven-portfolio-api.fly.dev',
+    link: 'https://riven-portfolio-api.fly.dev/docs',
     repo: 'https://github.com/Riiiviii/ai-chatbot',
   },
   {
-    title: 'Vestly',
+    title: 'Vestly (In development)',
     description:
       'A multi-agent financial analysis pipeline currently in development. Coordinates four specialist agents (fundamentals, sentiment, risk/macro, and competitive analysis) feeding into a judge agent that synthesises an evidence-grounded buy/sell/hold thesis from real-world market data. Built around a class-based agent architecture with Pydantic-validated structured outputs.',
     technologies: [
@@ -54,26 +54,8 @@ const projects: Project[] = [
       'Cloudinary',
       'Vite',
     ],
-    link: 'https://www.google.com',
-    repo: 'https://github.com/Riiiviii/olways-pets',
-  },
-  {
-    title: 'Simos PT',
-    description:
-      'A personal training service website featuring a landing page with testimonial carousel, training session offerings for in-person and online programming, a categorized FAQ with sticky sidebar navigation, scroll-triggered animations, and a contact form powered by Resend email integration with React Email templates.',
-    technologies: [
-      'TypeScript',
-      'Next.js',
-      'React',
-      'Tailwind CSS',
-      'Radix UI',
-      'React Hook Form',
-      'Zod',
-      'Resend',
-      'React Email',
-    ],
-    link: 'https://www.google.com',
-    repo: 'https://github.com/Riiiviii/simos-app',
+    link: 'https://olways-pets.vercel.app',
+    repo: '',
   },
 ]
 
