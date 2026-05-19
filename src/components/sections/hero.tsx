@@ -1,5 +1,5 @@
 import { Download, Mail } from 'lucide-react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { ScrambleButton } from '../ui/scramble-button'
 import { CyclingScramble } from '../ui/scramble-text'
 
@@ -46,15 +46,15 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <span className="mt-2">/</span>
-            <ScrambleButton icon={<Mail />} label="Contact" />
-            <span className="mt-2">/</span>
-            <ScrambleButton icon={<Download />} label="Resume" />
-            <span className="mt-2">/</span>
-            <ScrambleButton icon={<FaGithub />} label="Github" />
-            <span className="mt-2">/</span>
-            <ScrambleButton icon={<FaLinkedin />} label="LinkedIn" />
-            <span className="mt-2">/</span>
+            <span className="mt-1.5">/</span>
+            <ScrambleButton icon={<Mail />} label="Contact" href="#contact" />
+            <span className="mt-1.5">/</span>
+            <ScrambleButton icon={<FaFilePdf />} label="Resume" href="/Gabriel_Riven_Wahnich_Resume.pdf" />
+            <span className="mt-1.5">/</span>
+            <ScrambleButton icon={<FaGithub />} label="Github" href="https://github.com/Riiiviii" />
+            <span className="mt-1.5">/</span>
+            <ScrambleButton icon={<FaLinkedin />} label="LinkedIn" href="https://www.linkedin.com/in/gabriel-riven-wahnich" />
+            <span className="mt-1.5">/</span>
           </div>
         </div>
       </div>
