@@ -4,6 +4,7 @@ import Project from '#/components/sections/projects'
 import Skills from '#/components/sections/skills'
 import Expereience from '#/components/sections/experience'
 import { createFileRoute } from '@tanstack/react-router'
+import { Chat } from '#/components/sections/chat/chat.tsx';
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -15,6 +16,7 @@ function App() {
       <Expereience />
       <Skills />
       <Contact />
+      <Chat />
     </main>
   )
 }
