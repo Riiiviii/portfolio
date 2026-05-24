@@ -1,10 +1,10 @@
-import Contact from '#/components/sections/contact/contact'
-import Hero from '#/components/sections/hero'
-import Project from '#/components/sections/projects'
-import Skills from '#/components/sections/skills'
-import Expereience from '#/components/sections/experience'
+import Hero from '#/components/layout/hero.tsx'
+import Project from '#/components/layout/projects.tsx'
+import Skills from '#/components/layout/skills.tsx'
+import Expereience from '#/components/layout/experience.tsx'
 import { createFileRoute } from '@tanstack/react-router'
-import { Chat } from '#/components/sections/chat/chat.tsx';
+import Contact from '#/components/contact/contact.tsx';
+import { Chat } from '#/components/chat/chat.tsx';
 
 export const Route = createFileRoute('/')({ component: App })
 
