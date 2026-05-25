@@ -1,27 +1,27 @@
+import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import ChatMessage from "./chat-message";
 import type { Message, Role } from "./types";
-import { useEffect, useRef } from "react"
 
 type ChatLogProps = {
 	messages: Message[];
 };
 
 function ChatLog({ messages }: ChatLogProps) {
-  const bottomRef = useRef<HTMLDivElement>(null)
+	const bottomRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+	useEffect(() => {
+		bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, []);
 	return (
 		<div className="flex flex-col gap-4">
-			{messages.map((message, index) => (
+			{messages.map((message) => (
 				<div
-					key={index}
+					key={message.messageId}
 					className={twMerge(`flex`, getStyleVariant(message.role))}
 				>
 					<ChatMessage role={message.role}>{message.message}</ChatMessage>
-                <div ref={bottomRef} />
+					<div ref={bottomRef} />
 				</div>
 			))}
 		</div>

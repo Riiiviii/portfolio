@@ -18,13 +18,20 @@ export function Chat() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const handleSubmit = async (content: string) => {
-		setMessages((prev) => [...prev, { role: "user", message: content }]);
+		setMessages((prev) => [
+			...prev,
+			{ messageId: messages.length, role: "user", message: content },
+		]);
 		setIsLoading(true);
 		try {
 			const data = await sendMessage(getSessionId(), content);
 			setMessages((prev) => [
 				...prev,
-				{ role: "assistant", message: data.response },
+				{
+					messageId: messages.length,
+					role: "assistant",
+					message: data.response,
+				},
 			]);
 		} catch (err) {
 			console.error("Request failed:", err);

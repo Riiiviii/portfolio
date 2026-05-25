@@ -1,4 +1,5 @@
 export type Message = {
+	messageId: number;
 	role: Role;
 	message: string;
 };
