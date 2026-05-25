@@ -19,7 +19,7 @@ function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
 
 	return (
 		<form onSubmit={handleSubmit} className="border-t border-term-grey-3 p-4">
-			<div className="flex items-center gap-2 border border-transparent focus-within:border-term-white p-2 transition-colors">
+			<div className="flex items-center gap-2 border border-zinc-900 focus-within:border-zinc-700 p-2 transition-colors">
 				<span>$</span>
 				<Input
 					disabled={isLoading}
