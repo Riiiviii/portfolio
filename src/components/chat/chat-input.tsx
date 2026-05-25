@@ -22,6 +22,7 @@ function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
 			<div className="flex items-center gap-2 border border-zinc-900 focus-within:border-zinc-700 p-2 transition-colors">
 				<span>$</span>
 				<Input
+					aria-label="Chat message"
 					disabled={isLoading}
 					value={input}
 					onChange={(e) => setInput(e.target.value)}

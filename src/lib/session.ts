@@ -5,10 +5,14 @@ export function getSessionId(): string {
 		return "";
 	}
 
-	let sessionId = window.localStorage.getItem("session_id");
-	if (sessionId === null) {
-		sessionId = uuid();
-		window.localStorage.setItem("session_id", sessionId);
+	try {
+		let sessionId = window.localStorage.getItem("session_id");
+		if (sessionId === null) {
+			sessionId = uuid();
+			window.localStorage.setItem("session_id", sessionId);
+		}
+		return sessionId;
+	} catch {
+		return uuid();
 	}
-	return sessionId;
 }

@@ -1,5 +1,5 @@
 import { RotateCcwIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sendMessage } from "#/lib/api/chat";
 import { getSessionId } from "#/lib/session";
 import { Button } from "../ui/button";
@@ -18,19 +18,25 @@ export function Chat() {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [sessionId, setSessionId] = useState("");
+	const chatEpochRef = useRef(0);
 
 	useEffect(() => {
-		setSessionId(getSessionId());
+		const id = getSessionId();
+		setSessionId(id);
 	}, []);
 
 	const handleSubmit = async (content: string) => {
+		const epoch = chatEpochRef.current;
+		const session = getSessionId();
+
 		setMessages((prev) => [
 			...prev,
 			{ messageId: prev.length, role: "user", message: content },
 		]);
 		setIsLoading(true);
 		try {
-			const data = await sendMessage(getSessionId(), content);
+			const data = await sendMessage(session, content);
+			if (chatEpochRef.current !== epoch) return;
 			setMessages((prev) => [
 				...prev,
 				{
@@ -44,6 +50,11 @@ export function Chat() {
 		} finally {
 			setIsLoading(false);
 		}
+	};
+
+	const handleReset = () => {
+		chatEpochRef.current += 1;
+		setMessages([]);
 	};
 
 	return (
@@ -62,8 +73,8 @@ export function Chat() {
 					<Button
 						variant="ghost"
 						size="icon"
-						className="bg-transparent! !hover:bg-transparent text-zinc-400 hover:text-zinc-200 colour	transition-colors absolute top-1.5 right-8"
-						onClick={() => setMessages([])}
+						className="bg-transparent! hover:bg-transparent! text-zinc-400 hover:text-zinc-200 colour	transition-colors absolute top-1.5 right-8"
+						onClick={handleReset}
 					>
 						<RotateCcwIcon className=" size-3" />
 					</Button>

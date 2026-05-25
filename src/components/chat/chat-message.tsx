@@ -5,9 +5,10 @@ import type { Role } from "./types";
 
 type ChatMessageProps = {
 	role: Role;
-} & ComponentProps<"div">;
+	children: string;
+} & Omit<ComponentProps<"div">, "children">;
 
-function ChatMessage({ children, role, ...props }: ChatMessageProps) {
+function ChatMessage({ role, children, ...props }: ChatMessageProps) {
 	return (
 		<div className="max-w-[85%]" {...props}>
 			<div
@@ -20,7 +21,7 @@ function ChatMessage({ children, role, ...props }: ChatMessageProps) {
 			</div>
 			{role === "assistant" ? (
 				<div className="text-sm py-1 px-3 prose prose-invert prose-sm max-w-none">
-					<ReactMarkdown>{children as string}</ReactMarkdown>
+					<ReactMarkdown>{children}</ReactMarkdown>
 				</div>
 			) : (
 				<p className={twMerge("text-sm py-1 px-3", variantStyle(role))}>
