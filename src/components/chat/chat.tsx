@@ -11,6 +11,7 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "../ui/sheet";
+import { Spinner } from "../ui/spinner";
 import ChatInput from "./chat-input";
 import ChatLog from "./chat-log";
 import type { Message } from "./types";
@@ -22,7 +23,7 @@ export function Chat() {
 	const handleSubmit = async (content: string) => {
 		setMessages((prev) => [
 			...prev,
-			{ messageId: messages.length, role: "user", message: content },
+			{ messageId: prev.length, role: "user", message: content },
 		]);
 		setIsLoading(true);
 		try {
@@ -30,7 +31,7 @@ export function Chat() {
 			setMessages((prev) => [
 				...prev,
 				{
-					messageId: messages.length,
+					messageId: prev.length,
 					role: "assistant",
 					message: data.response,
 				},
@@ -80,7 +81,12 @@ export function Chat() {
 				<div className="flex-1 overflow-y-auto px-3">
 					<ChatLog messages={messages} />
 				</div>
-
+				{isLoading && (
+					<div className="flex gap-x-3 text-zinc-500 text-xs px-3">
+						<Spinner />
+						<p>Thinking</p>
+					</div>
+				)}
 				<ChatInput onSubmit={handleSubmit} isLoading={isLoading} />
 			</SheetContent>
 		</Sheet>

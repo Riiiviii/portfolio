@@ -26,7 +26,7 @@ function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
 					className="flex-1 border-0 bg-transparent! text-term-white p-0 focus-visible:ring-0 placeholder:text-term-text-muted"
-					placeholder={isLoading ? "Thinking..." : "Type your message here..."}
+					placeholder={!isLoading ? "Type your message... " : "-"}
 				/>
 			</div>
 
