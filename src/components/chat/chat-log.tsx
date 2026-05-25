@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
+import ChatEmpty from "./chat-empty";
 import ChatMessage from "./chat-message";
 import type { Message, Role } from "./types";
 
@@ -15,6 +16,7 @@ function ChatLog({ messages }: ChatLogProps) {
 	}, []);
 	return (
 		<div className="flex flex-col gap-4">
+			{messages.length === 0 && <ChatEmpty />}
 			{messages.map((message) => (
 				<div
 					key={message.messageId}
