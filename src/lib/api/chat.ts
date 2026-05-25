@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_CHATBOT_API_URL;
 
 export type ChatResponse = {
-	message: string;
+	response: string;
 };
 
 export async function sendMessage(
