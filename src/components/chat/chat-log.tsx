@@ -10,10 +10,12 @@ type ChatLogProps = {
 
 function ChatLog({ messages }: ChatLogProps) {
 	const bottomRef = useRef<HTMLDivElement>(null);
+	const messageCount = messages.length;
 
 	useEffect(() => {
+		if (messageCount === 0) return;
 		bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-	}, []);
+	}, [messageCount]);
 	return (
 		<div className="flex flex-col gap-4">
 			{messages.length === 0 && <ChatEmpty />}
@@ -23,9 +25,9 @@ function ChatLog({ messages }: ChatLogProps) {
 					className={twMerge(`flex`, getStyleVariant(message.role))}
 				>
 					<ChatMessage role={message.role}>{message.message}</ChatMessage>
-					<div ref={bottomRef} />
 				</div>
 			))}
+			<div ref={bottomRef} />
 		</div>
 	);
 }
