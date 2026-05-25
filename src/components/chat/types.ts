@@ -1,6 +1,6 @@
-type Message = {
-    role: Role
-    message: string
-}
+export type Message = {
+	role: Role;
+	message: string;
+};
 
-type Role = "assistant" | "user"
+export type Role = "assistant" | "user";
