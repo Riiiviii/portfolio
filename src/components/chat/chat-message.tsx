@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import ReactMarkdown from "react-markdown";
 import { twMerge } from "tailwind-merge";
 import type { Role } from "./types";
 
@@ -17,12 +18,15 @@ function ChatMessage({ children, role, ...props }: ChatMessageProps) {
 			>
 				{role === "user" ? "YOU" : "riven-ai"}
 			</div>
-			<p className={twMerge("text-sm py-1 px-3", variantStyle(role))}>
-				{role === "assistant" && (
-					<span className="text-xs font-bold">{">"} </span>
-				)}
-				{children}
-			</p>
+			{role === "assistant" ? (
+				<div className="text-sm py-1 px-3 prose prose-invert prose-sm max-w-none">
+					<ReactMarkdown>{children as string}</ReactMarkdown>
+				</div>
+			) : (
+				<p className={twMerge("text-sm py-1 px-3", variantStyle(role))}>
+					{children}
+				</p>
+			)}
 		</div>
 	);
 }

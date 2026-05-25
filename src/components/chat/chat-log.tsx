@@ -2,23 +2,25 @@ import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import ChatEmpty from "./chat-empty";
 import ChatMessage from "./chat-message";
+import ChatThinking from "./chat-thinking";
 import type { Message, Role } from "./types";
 
 type ChatLogProps = {
 	messages: Message[];
+	isThinking?: boolean;
 };
 
-function ChatLog({ messages }: ChatLogProps) {
+function ChatLog({ messages, isThinking = false }: ChatLogProps) {
 	const bottomRef = useRef<HTMLDivElement>(null);
 	const messageCount = messages.length;
 
 	useEffect(() => {
-		if (messageCount === 0) return;
+		if (messageCount === 0 && !isThinking) return;
 		bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-	}, [messageCount]);
+	}, [messageCount, isThinking]);
 	return (
 		<div className="flex flex-col gap-4">
-			{messages.length === 0 && <ChatEmpty />}
+			{messages.length === 0 && !isThinking && <ChatEmpty />}
 			{messages.map((message) => (
 				<div
 					key={message.messageId}
@@ -27,6 +29,11 @@ function ChatLog({ messages }: ChatLogProps) {
 					<ChatMessage role={message.role}>{message.message}</ChatMessage>
 				</div>
 			))}
+			{isThinking && (
+				<div className="flex justify-start">
+					<ChatThinking />
+				</div>
+			)}
 			<div ref={bottomRef} />
 		</div>
 	);
