@@ -1,17 +1,15 @@
 import { RotateCcwIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sendMessage } from "#/lib/api/chat";
 import { getSessionId } from "#/lib/session";
 import { Button } from "../ui/button";
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from "../ui/sheet";
-import { Spinner } from "../ui/spinner";
 import ChatInput from "./chat-input";
 import ChatLog from "./chat-log";
 import type { Message } from "./types";
@@ -19,6 +17,11 @@ import type { Message } from "./types";
 export function Chat() {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [sessionId, setSessionId] = useState("");
+
+	useEffect(() => {
+		setSessionId(getSessionId());
+	}, []);
 
 	const handleSubmit = async (content: string) => {
 		setMessages((prev) => [
@@ -59,34 +62,26 @@ export function Chat() {
 					<Button
 						variant="ghost"
 						size="icon"
-						className="bg-transparent hover:bg-transparent text-zinc-400 hover:text-zinc-200 colour	transition-colors absolute top-1.5 right-8"
+						className="bg-transparent! !hover:bg-transparent text-zinc-400 hover:text-zinc-200 colour	transition-colors absolute top-1.5 right-8"
 						onClick={() => setMessages([])}
 					>
-						<RotateCcwIcon className="  size-3" />
+						<RotateCcwIcon className=" size-3" />
 					</Button>
 				</SheetHeader>
-				<SheetDescription>
-					<div className=" text-zinc-500 border-b border-zinc-900 pb-2 px-3">
-						{getSessionId() ? (
-							<div className="flex justify-between items-center text-[10px]">
-								<span className="text-zinc-500">Session ID</span>
-								<span className="text-zinc-300">{getSessionId()}</span>
-							</div>
-						) : (
-							<span className="text-zinc-500 text-[10px]">No session ID</span>
-						)}
-					</div>
-				</SheetDescription>
+				<div className="text-zinc-500 border-b border-zinc-900 pb-2 px-3">
+					{sessionId ? (
+						<div className="flex justify-between items-center text-[10px]">
+							<span className="text-zinc-500">Session ID</span>
+							<span className="text-zinc-300">{sessionId}</span>
+						</div>
+					) : (
+						<span className="text-zinc-500 text-[10px]">No session ID</span>
+					)}
+				</div>
 
 				<div className="flex-1 overflow-y-auto px-3">
-					<ChatLog messages={messages} />
+					<ChatLog messages={messages} isThinking={isLoading} />
 				</div>
-				{isLoading && (
-					<div className="flex gap-x-3 text-zinc-500 text-xs px-3">
-						<Spinner />
-						<p>Thinking</p>
-					</div>
-				)}
 				<ChatInput onSubmit={handleSubmit} isLoading={isLoading} />
 			</SheetContent>
 		</Sheet>
