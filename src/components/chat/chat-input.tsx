@@ -1,41 +1,20 @@
 import type { SubmitEvent } from "react";
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
-import { sendMessage } from "#/lib/api/chat";
 import { Input } from "@/components/ui/input";
 
-function getSessionId() {
-	let sessionId = localStorage.getItem("session_id");
-	if (sessionId === null) {
-		sessionId = uuid();
-		localStorage.setItem("session_id", sessionId);
-	}
+type ChatInputProps = {
+	onSubmit: (content: string) => void;
+	isLoading: boolean;
+};
 
-	return sessionId;
-}
-
-function ChatInput() {
+function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
 	const [input, setInput] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
 
-	const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
-		const content = input;
+		if (!input.trim()) return;
+		onSubmit(input);
 		setInput("");
-		if (!content.trim()) return;
-
-		setIsLoading(true);
-		const sessionId = getSessionId();
-
-		try {
-			const data = await sendMessage(sessionId, content);
-			console.log("data", data);
-		} catch (err) {
-			console.error("Request failed:", err);
-		} finally {
-			setIsLoading(false);
-		}
 	};
 
 	return (
