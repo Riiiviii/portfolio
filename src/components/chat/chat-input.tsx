@@ -31,7 +31,7 @@ function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
 				/>
 			</div>
 
-			<div className="mt-3 flex justify-between text-xs text-term-text-muted">
+			<div className="mt-3 flex flex-wrap justify-between gap-2 text-xs text-term-text-muted">
 				<span>
 					Press{" "}
 					<kbd className="border border-term-grey-3 px-1.5 py-0.5">esc</kbd> to
