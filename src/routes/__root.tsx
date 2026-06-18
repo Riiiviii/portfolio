@@ -41,7 +41,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="min-h-screen">
-        <div className="mx-auto w-full max-w-6xl px-6">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <Header />
           <section>{children}</section>
           <Footer />

@@ -18,14 +18,14 @@ export function ExperienceCard({
             className="flex flex-col gap-1 py-3 text-sm"
             onMouseEnter={replayRole}
         >
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="text-term-text-dim">$</span>
                 <span className="text-term-text-dim">work</span>
                 <span className="text-term-text-dim">--period</span>
                 <span className="text-term-white shrink-0">{experience.period}</span>
             </div>
-            <div className="flex items-center gap-3 pl-6">
-                <span className="text-term-white flex-1">
+            <div className="flex flex-wrap items-center gap-2 pl-6 sm:gap-3">
+                <span className="text-term-white">
                     <span ref={roleRef} />
                 </span>
                 <span className="text-term-text-dim">@</span>
