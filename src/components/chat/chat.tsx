@@ -67,7 +67,7 @@ export function Chat() {
 					{`>`} chat
 				</Button>
 			</SheetTrigger>
-			<SheetContent side="right" className="flex flex-col w-125 sm:max-w-xl">
+			<SheetContent side="right" className="flex w-full flex-col sm:w-100 sm:max-w-100">
 				<SheetHeader className="border-b">
 					<SheetTitle className="text-xs">riven-ai</SheetTitle>
 					<Button
