@@ -20,9 +20,9 @@ const projects: Project[] = [
     repo: 'https://github.com/Riiiviii/ai-chatbot',
   },
   {
-    title: 'Vestly (In development)',
+    title: 'Vestly',
     description:
-      'A multi-agent financial analysis pipeline currently in development. Coordinates four specialist agents (fundamentals, sentiment, risk/macro, and competitive analysis) feeding into a judge agent that synthesises an evidence-grounded buy/sell/hold thesis from real-world market data. Built around a class-based agent architecture with Pydantic-validated structured outputs.',
+      'A multi-agent financial analysis pipeline. Coordinates four specialist agents (fundamentals, sentiment, risk/macro, and competitive analysis) feeding into a judge agent that synthesises an evidence-grounded buy/sell/hold thesis from real-world market data. Built around a class-based agent architecture with Pydantic-validated structured outputs.',
     technologies: [
       'Python',
       'FastAPI',
@@ -32,10 +32,8 @@ const projects: Project[] = [
       'Finnhub',
       'Vite',
       'React',
-      'PostgreSQL',
-      'Neon',
     ],
-    link: '',
+    link: 'https://vestly-nine.vercel.app',
     repo: 'https://github.com/Riiiviii/vestly',
   },
   {
